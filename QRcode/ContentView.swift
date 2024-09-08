@@ -23,8 +23,9 @@ struct ContentView: View {
                 .padding()
 
             Button(action: {
-                qrCodeImage = generateQRCode(from: text)
                 isSheetPresented = true
+                qrCodeImage = generateQRCode(from: text)
+                
             }) {
                 Text("Générer le QR Code")
                     .padding()
