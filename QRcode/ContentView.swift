@@ -55,22 +55,6 @@ struct ContentView: View {
     }
 }
 
-struct QRCodeSheetView: View {
-    let qrCodeImage: UIImage
-
-    var body: some View {
-        VStack {
-            Image(uiImage: qrCodeImage)
-                .interpolation(.none)
-                .resizable()
-                .frame(width: 200, height: 200)
-                .padding()
-
-            Spacer()
-        }
-        .presentationDetents([.medium]) // Affiche la feuille à demi-hauteur
-    }
-}
 #Preview {
     ContentView()
 }

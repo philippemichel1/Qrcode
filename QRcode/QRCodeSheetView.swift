@@ -8,11 +8,23 @@
 import SwiftUI
 
 struct QRCodeSheetView: View {
+    let qrCodeImage: UIImage // image du qrcode
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            // dimenssion du qrcode
+            Image(uiImage: qrCodeImage)
+                .interpolation(.none)
+                .resizable()
+                .frame(width: 200, height: 200)
+                .padding()
+
+            Spacer()
+        }
+        .presentationDetents([.medium]) // Affiche la feuille à demi-hauteur
     }
 }
 
 #Preview {
-    QRCodeSheetView()
+    QRCodeSheetView(qrCodeImage: UIImage(named: "qrcode")!)
 }
