@@ -6,6 +6,11 @@
 	objectVersion = 70;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		37F68E752C8F5B0C002B1D6A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F68E732C8F5B0C002B1D6A /* ContentView.swift */; };
+		37F68E762C8F5B0C002B1D6A /* QRcodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F68E742C8F5B0C002B1D6A /* QRcodeApp.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		3743B6E32C8DE84500EEE4F0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +32,8 @@
 		3743B6D22C8DE84100EEE4F0 /* QRcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3743B6E22C8DE84500EEE4F0 /* QRcodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QRcodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3743B6EC2C8DE84500EEE4F0 /* QRcodeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QRcodeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		37F68E732C8F5B0C002B1D6A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		37F68E742C8F5B0C002B1D6A /* QRcodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRcodeApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -63,10 +70,11 @@
 		3743B6C92C8DE84100EEE4F0 = {
 			isa = PBXGroup;
 			children = (
-				3743B6D42C8DE84100EEE4F0 /* QRcode */,
+				37F68E812C8F60B9002B1D6A /* View */,
 				3743B6E52C8DE84500EEE4F0 /* QRcodeTests */,
 				3743B6EF2C8DE84500EEE4F0 /* QRcodeUITests */,
 				3743B6D32C8DE84100EEE4F0 /* Products */,
+				3743B6D42C8DE84100EEE4F0 /* QRcode */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +86,15 @@
 				3743B6EC2C8DE84500EEE4F0 /* QRcodeUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		37F68E812C8F60B9002B1D6A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				37F68E732C8F5B0C002B1D6A /* ContentView.swift */,
+				37F68E742C8F5B0C002B1D6A /* QRcodeApp.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +240,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37F68E752C8F5B0C002B1D6A /* ContentView.swift in Sources */,
+				37F68E762C8F5B0C002B1D6A /* QRcodeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

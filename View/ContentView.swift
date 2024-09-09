@@ -18,7 +18,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            TextField("Enter text", text: $text)
+            TextField("Entrez votre URL", text: $text)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
 
@@ -42,6 +42,7 @@ struct ContentView: View {
         }
     }
 
+    // fonction qui génére le QRcode
     func generateQRCode(from string: String) -> UIImage? {
         let data = Data(string.utf8)
         filter.setValue(data, forKey: "inputMessage")
