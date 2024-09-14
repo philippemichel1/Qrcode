@@ -6,53 +6,66 @@
 //
 
 import SwiftUI
-import CoreImage
 import CoreImage.CIFilterBuiltins
 
 struct ContentView: View {
-    @State private var text = "www.example.com"
+    @State private var inputText: String = ""
+    @FocusState private var focus:Bool
     @State private var qrCodeImage: UIImage?
-    @State private var isSheetPresented = false
-    let context = CIContext()
-    let filter = CIFilter.qrCodeGenerator()
 
     var body: some View {
         VStack {
-            TextField("Entrez votre URL", text: $text)
+            Text("Générer votre QRCODE")
+                .frame(width:380, height:50)
+                .bold()
+                .font(.title)
+                .background(.red)
+                .cornerRadius(25)
+            
+                
+            TextField("Entrez le texte pour le QRCode", text: $inputText)
+                .onAppear() {
+                    focus = true
+                }
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
-
-            Button(action: {
-                isSheetPresented = true
-                qrCodeImage = generateQRCode(from: text)
+                .onChange(of:inputText) {
+                    qrCodeImage = nil
+                    focus = true
+                }
+            
                 
-            }) {
-                Text("Générer le QR Code")
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
+                
+
+            Button(action: generateQRCode) {
+                Text("Générer QRCode")
+            }
+            .padding()
+            .buttonStyle(.bordered)
+            
+            if let qrCodeImage = qrCodeImage {
+                Image(uiImage: qrCodeImage)
+                    .interpolation(.none)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200, height: 200)
             }
         }
         .padding()
-        .sheet(isPresented: $isSheetPresented) {
-            if let qrCodeImage = qrCodeImage {
-                QRCodeSheetView(qrCodeImage: qrCodeImage)
-            }
-        }
     }
-
-    // fonction qui génére le QRcode
-    func generateQRCode(from string: String) -> UIImage? {
-        let data = Data(string.utf8)
+// fonction de génération du qrcode
+    func generateQRCode() {
+        let context = CIContext()
+        let filter = CIFilter.qrCodeGenerator()
+        let data = Data(inputText.utf8)
         filter.setValue(data, forKey: "inputMessage")
 
         if let outputImage = filter.outputImage {
             if let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
-                return UIImage(cgImage: cgImage)
+                qrCodeImage = UIImage(cgImage: cgImage)
             }
         }
-        return nil
+        
     }
 }
 
